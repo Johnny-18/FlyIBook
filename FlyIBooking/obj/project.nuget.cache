@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "VhlJI04ilTCmq/zBjs/P+S5XkX66yaaMdzTehg8BeHvZXUCltWq0rWf67hO6AQKAuL8sbOS3E6IiZR8G5sOHHg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ivan Zherybor\\Desktop\\Диплом\\FlyIBooking\\FlyIBooking\\FlyIBooking.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
