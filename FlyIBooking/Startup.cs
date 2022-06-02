@@ -1,11 +1,14 @@
 using FlyIBooking.DbContext;
+using FlyIBooking.Generators;
+using FlyIBooking.Repositories;
+using FlyIBooking.Services.Auth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace FlyIBooking
 {
@@ -18,14 +21,19 @@ namespace FlyIBooking
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<FlyIBookingDbContext>();
-            
             services.AddDbContext<FlyIBookingDbContext>(
-                options => options.UseNpgsql(configuration.GetConnectionString("DatabaseContext")),
+                options => options.UseNpgsql(Configuration.GetConnectionString("DatabaseContext")),
                 ServiceLifetime.Transient);
+
+            services.AddTransient<AccountRepository>();
+            
+            services.AddTransient(_ =>
+                new HashGenerator(Configuration.GetSection("HashOptions").GetValue<string>("Salt")));
+            services.AddTransient<JwtGenerator>();
+            services.AddTransient<AuthService>();
+            services.AddTransient<AccountService>();
             
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -34,23 +42,25 @@ namespace FlyIBooking
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FlyIBooking v1"));
-            }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseSwagger();
+            app.UseSwaggerUI(opts =>
+            {
+                opts.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                opts.DocumentTitle = "Fly booking API";
+                opts.DisplayRequestDuration();
+                opts.DisplayOperationId();
+                opts.DefaultModelRendering(ModelRendering.Example);
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

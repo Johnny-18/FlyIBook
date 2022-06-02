@@ -9,7 +9,7 @@ namespace FlyIBooking.DbContext
         
         public DbSet<TicketDal> Tickets { get; set; }
         
-        public DbSet<UserDal> Users { get; set; }
+        public DbSet<AccountDal> Accounts { get; set; }
 
         public FlyIBookingDbContext(DbContextOptions<FlyIBookingDbContext> options) : base(options)
         {
@@ -23,12 +23,14 @@ namespace FlyIBooking.DbContext
         {
             base.OnModelCreating(builder);
 
-            // builder.Entity<Account>().HasKey(s => s.Id);
-            //
-            // builder.Entity<BetPool>()
-            //     .HasMany(s => s.Bets)
-            //     .WithOne(s => s.BetPool)
-            //     .HasForeignKey(s => s.Event_Id);
+            builder.Entity<AccountDal>().HasKey(s => s.Id);
+
+            builder.Entity<AccountDal>().HasIndex(s => s.Id).IsUnique();
+
+            builder.Entity<AccountDal>()
+                .HasMany(s => s.Tickets)
+                .WithOne(s => s.Account)
+                .HasForeignKey(s => s.AccountId);
         }
     }
 }
