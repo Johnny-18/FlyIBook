@@ -5771,19 +5771,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ivan.zherybor\\.nuget\\packages\\": {}
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Vizi\\FlyIBooking\\FlyIBooking\\FlyIBooking.csproj",
+      "projectUniqueName": "C:\\Users\\Ivan Zherybor\\Desktop\\Диплом\\FlyIBooking\\FlyIBooking\\FlyIBooking.csproj",
       "projectName": "FlyIBooking",
-      "projectPath": "C:\\Vizi\\FlyIBooking\\FlyIBooking\\FlyIBooking.csproj",
-      "packagesPath": "C:\\Users\\ivan.zherybor\\.nuget\\packages\\",
-      "outputPath": "C:\\Vizi\\FlyIBooking\\FlyIBooking\\obj\\",
+      "projectPath": "C:\\Users\\Ivan Zherybor\\Desktop\\Диплом\\FlyIBooking\\FlyIBooking\\FlyIBooking.csproj",
+      "packagesPath": "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ivan Zherybor\\Desktop\\Диплом\\FlyIBooking\\FlyIBooking\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ivan.zherybor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ivan Zherybor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5791,7 +5791,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://scm.betlab.private:8070/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5871,7 +5870,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

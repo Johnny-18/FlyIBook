@@ -28,6 +28,8 @@ namespace FlyIBooking
                 ServiceLifetime.Transient);
 
             services.AddTransient<AccountRepository>();
+            services.AddTransient<TicketRepository>();
+            services.AddTransient<PlaneRepository>();
             
             services.AddTransient(_ =>
                 new HashGenerator(Configuration.GetSection("HashOptions").GetValue<string>("Salt")));
