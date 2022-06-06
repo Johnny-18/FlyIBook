@@ -17,20 +17,41 @@ namespace FlyIBooking.DbContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+             // optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FlyBooking;Username=postgres;Password=postgres");
+             // base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<AccountDal>().HasKey(s => s.Id);
-
-            builder.Entity<AccountDal>().HasIndex(s => s.Id).IsUnique();
+            builder.Entity<AccountDal>()
+                .HasKey(s => s.Id);
 
             builder.Entity<AccountDal>()
-                .HasMany(s => s.Tickets)
-                .WithOne(s => s.Account)
-                .HasForeignKey(s => s.AccountId);
+                .Property(s => s.Email);
+            
+            builder.Entity<AccountDal>()
+                .Property(s => s.PasswordHash);
+            
+            builder.Entity<TicketDal>()
+                .HasKey(s => s.Id);
+            
+            builder.Entity<TicketDal>()
+                .Property(s => s.Price);
+            
+            builder.Entity<TicketDal>()
+                .Property(s => s.AccountId);
+            
+            builder.Entity<TicketDal>()
+                .Property(s => s.PlaneId);
+            
+            builder.Entity<TicketDal>()
+                .Property(s => s.SeatNumber);
+            
+            builder.Entity<PlaneDal>().HasKey(s => s.Id);
+
+            builder.Entity<TicketDal>().HasIndex(s => s.Id).IsUnique();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using FlyIBooking.Entities;
 
 namespace FlyIBooking.Dtos
 {
@@ -8,8 +9,7 @@ namespace FlyIBooking.Dtos
         [Required]
         public Guid Id { get; set; }
         
-        [Required]
-        public Guid AccountId { get; set; }
+        public Guid? AccountId { get; set; }
 
         [Required]
         public Guid PlaneId { get; set; }

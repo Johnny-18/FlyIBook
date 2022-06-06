@@ -18,7 +18,7 @@ namespace FlyIBooking.Repositories
             Set = context.Set<T>();
         }
         
-        public async Task<T> GetByIdAsync(Guid id)
+        public async Task<T?> GetByIdAsync(Guid id)
         {
             return await Set.FindAsync(id);
         }

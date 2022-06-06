@@ -20,12 +20,5 @@ namespace FlyIBooking.Entities
         public DateTimeOffset ArrivalDate { get; set; }
         
         public decimal Price { get; set; }
-        
-        public IReadOnlyCollection<TicketDal> Tickets { get; set; }
-
-        public PlaneDal()
-        {
-            Tickets = new List<TicketDal>();
-        }
     }
 }

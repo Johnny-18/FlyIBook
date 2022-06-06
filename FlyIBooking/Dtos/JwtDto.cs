@@ -8,6 +8,6 @@
         /// <summary>
         /// JWT Token string
         /// </summary>
-        public string JwtString { get; set; }
+        public string? JwtString { get; set; }
     }
 }

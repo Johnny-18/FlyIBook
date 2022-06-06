@@ -9,16 +9,9 @@ namespace FlyIBooking.Entities
         [Key]
         public Guid Id { get; set; }
         
-        public string Email { get; set; }
-        
-        [MinLength(6, ErrorMessage = "Password must be minimum 6 symbols length.")]
-        public string PasswordHash { get; set; }
-        
-        public IReadOnlyCollection<TicketDal> Tickets { get; set; }
+        public string Email { get; set; } = null!;
 
-        public AccountDal()
-        {
-            Tickets = new List<TicketDal>();
-        }
+        [MinLength(6, ErrorMessage = "Password must be minimum 6 symbols length.")]
+        public string PasswordHash { get; set; } = null!;
     }
 }

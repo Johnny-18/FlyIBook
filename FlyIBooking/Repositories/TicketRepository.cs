@@ -15,14 +15,14 @@ namespace FlyIBooking.Repositories
         {
         }
 
-        public async Task<IEnumerable<TicketDal>?> GetTicketsByAccountId(Guid accountId, CancellationToken cancellationToken)
+        public async Task<IEnumerable<TicketDal>> GetByAccountId(Guid accountId)
         {
-            return await Context.Tickets.Where(x => x.AccountId == accountId).ToArrayAsync(cancellationToken);
+            return await Context.Tickets.Where(x => x.AccountId == accountId).ToArrayAsync();
         }
         
-        public async Task<IEnumerable<TicketDal>?> GetTicketsByPlaneId(Guid planeId, CancellationToken cancellationToken)
+        public async Task<IEnumerable<TicketDal>> GetByPlaneId(Guid planeId)
         {
-            return await Context.Tickets.Where(x => x.PlaneId == planeId).ToArrayAsync(cancellationToken);
+            return await Context.Tickets.Where(x => x.PlaneId == planeId).ToArrayAsync();
         }
     }
 }

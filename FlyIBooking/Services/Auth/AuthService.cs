@@ -25,7 +25,7 @@ namespace FlyIBooking.Services.Auth
             _jwtGenerator = jwtGenerator;
         }
 
-        public async Task<string> LoginAsync(AccountLoginDto accountLoginDto)
+        public async Task<string?> LoginAsync(AccountLoginDto accountLoginDto)
         {
             if (accountLoginDto == null)
                 throw new ArgumentNullException(nameof(accountLoginDto));
@@ -43,7 +43,7 @@ namespace FlyIBooking.Services.Auth
             return _jwtGenerator.GenerateJwt(accFromBase, SecurityKey);
         }
 
-        public async Task<string> RegisterAsync(AccountRegisterDto accountRegisterDto)
+        public async Task<string?> RegisterAsync(AccountRegisterDto accountRegisterDto)
         {
             if (accountRegisterDto == null)
                 throw new ArgumentNullException(nameof(accountRegisterDto));
@@ -51,7 +51,8 @@ namespace FlyIBooking.Services.Auth
             if (string.IsNullOrEmpty(accountRegisterDto.Email) || string.IsNullOrEmpty(accountRegisterDto.Password))
                 return null;
 
-            if (await _accountService.GetByEmailAsync(accountRegisterDto.Email) != null)
+            var existingAccount = await _accountService.GetByEmailAsync(accountRegisterDto.Email);
+            if (existingAccount is not null)
                 return null;
 
             var newId = Guid.NewGuid();

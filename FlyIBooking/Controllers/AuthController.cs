@@ -46,7 +46,7 @@ namespace FlyIBooking.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<JwtDto>> RegisterAsync([FromBody] AccountRegisterDto registerDto)
         {
-            if (!ModelState.IsValid || registerDto == null)
+            if (!ModelState.IsValid || registerDto is null)
             {
                 return BadRequest();
             }

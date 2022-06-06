@@ -10,7 +10,7 @@ namespace FlyIBooking.Generators
 {
     public sealed class JwtGenerator
     {
-        public string GenerateJwt(AccountDto dto, string securityKey)
+        public string? GenerateJwt(AccountDto dto, string securityKey)
         {
             var claims = new List<Claim>
             {

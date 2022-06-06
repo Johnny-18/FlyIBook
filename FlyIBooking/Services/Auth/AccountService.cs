@@ -18,7 +18,7 @@ namespace FlyIBooking.Services.Auth
             _accountRepository = accountRepository;
         }
 
-        public async Task<AccountDto> GetByEmailAsync(string email)
+        public async Task<AccountDto?> GetByEmailAsync(string email)
         {
             if (string.IsNullOrEmpty(email))
                 return null;
@@ -36,8 +36,6 @@ namespace FlyIBooking.Services.Auth
                 return false;
 
             var account = registeredAccount.ToDal();
-
-            account.Tickets = new List<TicketDal>();
 
             await _accountRepository.AddAsync(account);
 

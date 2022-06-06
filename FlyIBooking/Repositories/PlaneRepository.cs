@@ -1,4 +1,6 @@
-﻿using FlyIBooking.DbContext;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using FlyIBooking.DbContext;
 using FlyIBooking.Entities;
 
 namespace FlyIBooking.Repositories
@@ -7,6 +9,12 @@ namespace FlyIBooking.Repositories
     {
         public PlaneRepository(FlyIBookingDbContext context) : base(context)
         {
+        }
+
+        public async Task AddRangeAsync(IReadOnlyCollection<PlaneDal> dals)
+        {
+            Context.Planes.AddRange(dals);
+            await Context.SaveChangesAsync();
         }
     }
 }
